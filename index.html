@@ -4,78 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certo - Mobile Privacy & Security</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
+    <!-- ============================================ -->
     <!-- NAVIGATION START -->
+    <!-- ============================================ -->
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
+                <!-- Logo -->
                 <a class="navbar-brand" href="#">
-                    <img src="assets/images/logo-certo.png" alt="Certo" height="30">
+                    <img src="assets/images/logo-certo.png" alt="Certo Logo" height="30">
                 </a>
+                
+                <!-- Mobile Toggle Button -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
+                <!-- Nav Links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">iPhone</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Android</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Company</a></li>
-                        <li class="nav-item"><a class="nav-link btn btn-sign-in" href="#">Sign in</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">iPhone</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Android</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Help</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Company</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-sign-in" href="#">Sign in</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <!-- ============================================ -->
     <!-- NAVIGATION END -->
+    <!-- ============================================ -->
 
     <main>
+
+        <!-- ============================================ -->
         <!-- HERO SECTION START -->
+        <!-- ============================================ -->
         <section class="hero-section">
             <div class="container">
                 <div class="row align-items-center">
-                    <!-- Left Column: Text Content -->
+                    
+                    <!-- Left Column: Text -->
                     <div class="col-lg-6 hero-text">
-                        <h1 class="hero-title">Your mobile privacy is our mission</h1>
+                        <h1 class="hero-title">
+                            Your mobile privacy is our mission
+                        </h1>
                         <p class="hero-description">
                             Think your phone has been hacked? Our trusted apps make it easy 
                             for you to scan, detect and remove threats from your iPhone and 
                             Android devices.
                         </p>
                         <div class="hero-buttons">
-                            <a href="#" class="btn btn-primary btn-lg me-3">Get Certo for iPhone</a>
-                            <a href="#" class="btn btn-outline-dark btn-lg">Get Certo for Android</a>
+                            <a href="#" class="btn btn-hero-iphone me-3">
+                                Get Certo for iPhone
+                            </a>
+                            <a href="#" class="btn btn-hero-android">
+                                Get Certo for Android
+                            </a>
                         </div>
                     </div>
                     
-                    <!-- Right Column: Phone Mockup -->
-                    <div class="col-lg-6 hero-image">
+                    <!-- Right Column: Phone Image -->
+                    <div class="col-lg-6 hero-image-col">
                         <img src="assets/images/hero-phone.png" 
                              alt="Certo iPhone app showing security scan" 
-                             class="img-fluid">
+                             class="img-fluid hero-phone">
                     </div>
+                    
                 </div>
                 
-                <!-- Rating/Trust Badge -->
+                <!-- Rating / Trust Badge -->
                 <div class="row mt-5">
                     <div class="col-12 text-center">
-                        <img src="assets/images/stars-rating.png" alt="5 star rating" class="stars-img">
-                        <p class="trust-text">Loved by thousands of iPhone and Android users alike</p>
+                        <img src="assets/images/stars-rating.png" 
+                             alt="5 star rating" 
+                             class="stars-img mb-2">
+                        <p class="trust-text">
+                            Loved by thousands of iPhone and Android users alike
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- ============================================ -->
         <!-- HERO SECTION END -->
+        <!-- ============================================ -->
 
+        <!-- ============================================ -->
         <!-- TESTIMONIALS SECTION START -->
+        <!-- ============================================ -->
         <section class="testimonials-section">
             <div class="container">
                 <div class="row g-4">
-                    <!-- Testimonial 1 -->
+                    
+                    <!-- Testimonial 1 - colindemandy94 -->
                     <div class="col-md-4">
                         <div class="testimonial-card">
                             <p class="testimonial-text">
@@ -84,30 +127,34 @@
                                 certainly recommend this app."
                             </p>
                             <div class="testimonial-author">
-                                <img src="assets/images/avatar-colin.png" alt="colindemandy94" 
+                                <img src="assets/images/avatar-colin.png" 
+                                     alt="colindemandy94" 
                                      class="avatar">
                                 <span class="author-name">colindemandy94</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Testimonial 2 -->
+                    <!-- Testimonial 2 - Jennifer Sluck -->
                     <div class="col-md-4">
                         <div class="testimonial-card">
                             <p class="testimonial-text">
                                 "Love the ease and efficiency. Awesome app. Very informative 
                                 and insightful if wanting to know more about your device. 
-                                The added breach check is a great bonus..."
+                                The added breach check is a great bonus. Check any email 
+                                of that's ever been named in a data breach from years ago. 
+                                Sweet tool. Love it highly recommend."
                             </p>
                             <div class="testimonial-author">
-                                <img src="assets/images/avatar-jennifer.png" alt="Jennifer Sluck" 
+                                <img src="assets/images/avatar-jennifer.png" 
+                                     alt="Jennifer Sluck" 
                                      class="avatar">
                                 <span class="author-name">Jennifer Sluck</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Testimonial 3 -->
+                    <!-- Testimonial 3 - Philip Colligan -->
                     <div class="col-md-4">
                         <div class="testimonial-card">
                             <p class="testimonial-text">
@@ -116,23 +163,29 @@
                                 their customer service was quite helpful and responsive."
                             </p>
                             <div class="testimonial-author">
-                                <img src="assets/images/avatar-philip.png" alt="Philip Colligan" 
+                                <img src="assets/images/avatar-philip.png" 
+                                     alt="Philip Colligan" 
                                      class="avatar">
                                 <span class="author-name">Philip Colligan</span>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </section>
+        <!-- ============================================ -->
         <!-- TESTIMONIALS SECTION END -->
+        <!-- ============================================ -->
 
-        <!-- PRESS/FEATURED SECTION START -->
+        <!-- ============================================ -->
+        <!-- PRESS / FEATURED IN SECTION START -->
+        <!-- ============================================ -->
         <section class="press-section">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="featured-title">Featured in:</h3>
+                        <h3 class="featured-title text-center mb-4">Featured in:</h3>
                         <div class="press-logos">
                             <img src="assets/images/logo-cnbc.png" alt="CNBC">
                             <img src="assets/images/logo-financial-times.png" alt="Financial Times">
@@ -144,44 +197,93 @@
                 </div>
             </div>
         </section>
-        <!-- PRESS/FEATURED SECTION END -->
+        <!-- ============================================ -->
+        <!-- PRESS / FEATURED IN SECTION END -->
+        <!-- ============================================ -->
 
+        <!-- ============================================ -->
         <!-- BOTTOM CTA SECTION START -->
+        <!-- ============================================ -->
         <section class="bottom-cta">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <h2>At Certo, mobile security is not an afterthought it's ...</h2>
-                        <p class="lead">find peace of mind.</p>
+                        <h2 class="bottom-cta-title">
+                            At Certo, mobile security is not an afterthought it's ...
+                        </h2>
+                        <p class="bottom-cta-subtitle">find peace of mind.</p>
                     </div>
                     <div class="col-lg-6">
-                        <div class="cta-buttons">
-                            <a href="#" class="btn btn-primary">Get Certo for iPhone</a>
-                            <a href="#" class="btn btn-outline-dark">Get Certo for Android</a>
+                        <div class="bottom-cta-buttons">
+                            <a href="#" class="btn btn-hero-iphone me-3">
+                                Get Certo for iPhone
+                            </a>
+                            <a href="#" class="btn btn-hero-android">
+                                Get Certo for Android
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- ============================================ -->
         <!-- BOTTOM CTA SECTION END -->
+        <!-- ============================================ -->
+
     </main>
 
+    <!-- ============================================ -->
     <!-- FOOTER START -->
+    <!-- ============================================ -->
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h4>Certo</h4>
-                    <p>Mobile security made simple</p>
+                <div class="col-md-4 mb-3">
+                    <h4 class="footer-logo">Certo</h4>
+                    <p class="footer-text">Mobile security made simple.</p>
                 </div>
-                <div class="col-md-8">
-                    <!-- Footer links here -->
+                <div class="col-md-2 mb-3">
+                    <h5>Products</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">iPhone</a></li>
+                        <li><a href="#">Android</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="copyright">&copy; 2024 Certo. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- ============================================ -->
     <!-- FOOTER END -->
+    <!-- ============================================ -->
 
+    <!-- Bootstrap 5 JS Bundle (for navbar toggler) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
