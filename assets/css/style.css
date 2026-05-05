@@ -76,7 +76,7 @@ html {
 }
 .nav-link {
     color: var(--color-dark)
-    font-weight: 500;
+    font-weight 500;
     padding: 0.5rem 1rem ;
 }
 .nav-link:hover {
