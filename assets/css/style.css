@@ -79,3 +79,6 @@ html {
     font-weight: 500;
     padding: 0.5rem 1rem !important;
 }
+.nav-link:hover {
+    color: var(--color-primary) !important;
+}
