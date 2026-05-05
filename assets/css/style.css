@@ -35,4 +35,32 @@ body{
     line-height: 1.6;
     overflow-x: hidden;
 }
+.container{
+    padding: 24px 0;
+}
 
+.navbar-nav{
+    font-weight: 800;
+}
+.btn-sign-in {
+    background-color: #4335DE;
+    color:#FFFFFF;
+    padding: 16px 35px;
+    border-radius: 42px;
+    width: 110px;
+    text-align: center;
+}
+.circle{
+    border: 1px solid red;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    left: ;
+    top: ;
+    padding: 9px;
+    width: 150px;
+    border-radius: 50%;
+}
