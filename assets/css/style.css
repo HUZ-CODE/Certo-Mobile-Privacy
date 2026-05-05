@@ -74,4 +74,8 @@ html {
     font-weight: 700;
     font-size: 1.5rem;
 }
-
+.nav-link {
+    color: var(--color-dark) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+}
