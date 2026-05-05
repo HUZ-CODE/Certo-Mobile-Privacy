@@ -58,9 +58,15 @@ body{
     justify-content: center;
     margin: auto;
     position: relative;
-    left: ;
-    top: ;
     padding: 9px;
     width: 150px;
     border-radius: 50%;
+}
+html {
+    scroll-behavior: smooth;
+}
+.navbar {
+    background-color: #FFFFFF;
+    padding: 1rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
