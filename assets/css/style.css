@@ -188,3 +188,8 @@ img,
     background: #f3f4f6;
     color: var(--color-dark);
 }
+
+.testimonials-section {
+    padding: 5rem 0;
+    background-color: #fff;
+}
