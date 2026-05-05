@@ -143,3 +143,10 @@ img,
     border-radius: 50%;
     object-fit: cover;
 }
+/* =============================================
+   HERO SECTION
+   ============================================= */
+.hero-section {
+    padding: 6rem 0 4rem;
+    background-color: var(--color-bg-light);
+}
