@@ -1,17 +1,14 @@
-/* =============================================
-   CSS DESIGN VARIABLES (Custom Properties)
-   Match exact colors from Figma design
-   ============================================= */
+
 :root {
-    /* Primary brand color - match Figma blue */
+   
     --color-primary: #3B82F6;
     --color-primary-hover: #2563EB;
     
-    /* Text colors */
+    
     --color-dark: #111827;
     --color-body: #6B7280;
     
-    /* Background colors */
+   
     --color-bg: #FFFFFF;
     --color-bg-light: #F9FAFB;
     
