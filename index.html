@@ -1,342 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Meta tags for character encoding and responsive viewport -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certo - Mobile Privacy & Security</title>
-    
-    <!-- Bootstrap 5 CSS via CDN (Content Delivery Network) -->
-    <!-- No need to download - loads directly from internet -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS file for design matching Figma exactly -->
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certo – Your Mobile Privacy is Our Mission</title>
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Sora:wght@400;600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ========== CUSTOM CSS ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .certo-navbar {
+      padding: 20px 0;
+      background: white;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .certo-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-text {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #0A2540, #0066cc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: #1a2c3e;
+    }
+
+    .nav-link:hover {
+      color: #0066cc;
+    }
+
+    .btn-sign-in {
+      background: transparent;
+      border: 1.5px solid #1a2c3e;
+      padding: 8px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #1a2c3e;
+      transition: all 0.3s;
+    }
+
+    .btn-sign-in:hover {
+      background: #1a2c3e;
+      color: white;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      padding: 60px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #0A2540, #1f6392);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #4a5b6e;
+      max-width: 500px;
+    }
+
+    .btn-certo-primary {
+      background: #0066cc;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 60px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-certo-primary:hover {
+      background: #004c99;
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    .btn-certo-outline-dark {
+      background: transparent;
+      border: 1.5px solid #1a2c3e;
+      color: #1a2c3e;
+      padding: 12px 28px;
+      border-radius: 60px;
+      transition: all 0.3s;
+    }
+
+    .btn-certo-outline-dark:hover {
+      background: #1a2c3e;
+      color: white;
+    }
+
+    .hero-right-bg {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-35%);
+      z-index: 2;
+    }
+
+    .hero-gold-box {
+      background: linear-gradient(135deg, #fdb235, #ff9800);
+      border-radius: 40px;
+      padding: 15px;
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-man-img {
+      width: 280px;
+      height: auto;
+      border-radius: 30px;
+    }
+
+    .hero-phone-ui {
+      position: absolute;
+      bottom: -30px;
+      right: -20px;
+      width: 140px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Reviews Section */
+    .bg-gold-wrapper {
+      background: linear-gradient(180deg, #fff8ed 0%, #ffffff 100%);
+      padding: 60px 0 40px;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      text-align: center;
+      color: #0A2540;
+    }
+
+    .reviews-scroll-track {
+      overflow-x: auto;
+      padding: 20px 40px;
+    }
+
+    .reviews-scroll {
+      display: flex;
+      gap: 24px;
+      min-width: min-content;
+    }
+
+    .review-card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      width: 340px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 102, 204, 0.1);
+    }
+
+    .stars {
+      color: #fdb235;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+
+    .review-text {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #2c3e44;
+      margin-bottom: 16px;
+    }
+
+    .reviewer-name {
+      font-weight: 700;
+      color: #0066cc;
+    }
+
+    .featured-logos-bar {
+      padding: 30px 0;
+    }
+
+    .featured-label {
+      font-weight: 600;
+      color: #6c7a8a;
+    }
+
+    .logos img {
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .logos img:hover {
+      opacity: 1;
+    }
+
+    /* Mission Section */
+    .mission-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .mission-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #0A2540;
+      margin-bottom: 24px;
+    }
+
+    .mission-body {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #4a5b6e;
+      max-width: 500px;
+    }
+
+    .mission-photo-wrapper {
+      background: linear-gradient(135deg, #fdb235, #ff9800);
+      border-radius: 40px;
+      padding: 15px;
+    }
+
+    .mission-photo {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 30px;
+    }
+
+    /* Features Section */
+    .bg-features-wrapper {
+      background: #f8fafc;
+      padding: 60px 0;
+    }
+
+    .features-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 50px;
+    }
+
+    .feature-item {
+      background: white;
+      padding: 32px 24px;
+      border-radius: 24px;
+      text-align: center;
+      transition: all 0.3s;
+      height: 100%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+
+    .feature-icon img {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      color: #6c7a8a;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Dual Cards */
+    .dual-card {
+      padding: 40px;
+      border-radius: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+      transition: transform 0.3s;
+    }
+
+    .dual-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .dual-card--light-blue {
+      background: linear-gradient(135deg, #e8f0fe, #d4e4fc);
+    }
+
+    .dual-card--white {
+      background: white;
+      border: 1px solid #e2e8f0;
+    }
+
+    .btn-certo-purple {
+      background: #7c3aed;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 40px;
+      text-decoration: none;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    /* CTA Banner */
+    .cta-banner-section {
+      background: linear-gradient(135deg, #0a2b4e, #1a4a7a);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .cta-banner-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: white;
+    }
+
+    .cta-banner-sub {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Insights */
+    .insights-section {
+      padding: 80px 0;
+      background: white;
+    }
+
+    .insight-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+
+    .insight-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    }
+
+    .insight-img {
+      position: relative;
+    }
+
+    .insight-photo {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .insight-tag {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #fdb235;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    .insight-body {
+      padding: 20px;
+    }
+
+    .insight-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .insight-excerpt {
+      font-size: 0.85rem;
+      color: #6c7a8a;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #0a2b4e;
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-title-large {
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    .social-box {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-box:hover {
+      background: #fdb235;
+      color: #1a2c3e;
+    }
+
+    .footer-nav-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .footer-nav-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-nav-list li {
+      margin-bottom: 10px;
+    }
+
+    .footer-nav-list a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+    }
+
+    .footer-nav-list a:hover {
+      color: white;
+    }
+
+    .newsletter-gold-box {
+      background: linear-gradient(135deg, #fdb235, #ff9800);
+      border-radius: 24px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .newsletter-text {
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    .newsletter-form-pill {
+      display: flex;
+      gap: 10px;
+    }
+
+    .newsletter-form-pill input {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 40px;
+      font-size: 0.85rem;
+    }
+
+    .newsletter-form-pill button {
+      background: #1a2c3e;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+    }
+
+    .footer-white-box {
+      height: 80px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+    }
+
+    .footer-disclaimer {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.4);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .hero-right-bg {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- ============================================ -->
-    <!-- NAVIGATION / HEADER SECTION -->
-    <!-- Uses Bootstrap navbar component -->
-    <!-- Fixed positioning, collapses on mobile -->
-    <!-- ============================================ -->
-    <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                
-                <!-- Certo Logo - links to homepage -->
-                <a class="navbar-brand" href="#">
-                    <img src="assets/images/logo-certo.png" alt="Certo Logo" height="30">
-                </a>
-                
-                <!-- Hamburger menu button - visible only on mobile -->
-                <!-- data-bs-toggle and data-bs-target are Bootstrap attributes -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <!-- Navigation links - collapse into hamburger on mobile -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <!-- ms-auto pushes nav items to the right -->
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">iPhone</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Android</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Help</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Company</a>
-                        </li>
-                        <!-- Sign in button styled differently -->
-                        <li class="nav-item">
-                            <a class="nav-link btn-sign-in" href="#">Sign in</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- ============================================ -->
-    <!-- NAVIGATION / HEADER END -->
-    <!-- ============================================ -->
-
-    <!-- Main content wrapper - semantic HTML5 tag -->
-    <main>
-
-        <!-- ============================================ -->
-        <!-- HERO SECTION -->
-        <!-- Contains: main heading, description, CTA buttons, phone image -->
-        <!-- Uses Bootstrap grid: col-lg-6 for side-by-side layout on desktop -->
-        <!-- Stacks vertically on mobile (col-12 by default) -->
-        <!-- ============================================ -->
-        <section class="hero-section">
-            <div class="container">
-                <!-- row align-items-center = vertical centering of columns -->
-                <div class="row align-items-center">
-                    
-                    <!-- Left side: Text content (6 columns on desktop, full width on mobile) -->
-                    <div class="col-lg-6 hero-text">
-                        <!-- Main heading - matches Figma typography -->
-                        <h1 class="hero-title">
-                            Your mobile privacy is our mission
-                        </h1>
-                        <!-- Subheading / description paragraph -->
-                        <p class="hero-description">
-                            Think your phone has been hacked? Our trusted apps make it easy 
-                            for you to scan, detect and remove threats from your iPhone and 
-                            Android devices.
-                        </p>
-                        <!-- CTA Buttons container - flex-wrap for responsiveness -->
-                        <div class="hero-buttons">
-                            <!-- me-3 = margin-end (right margin) spacing -->
-                            <a href="#" class="btn btn-hero-iphone me-3">
-                                Get Certo for iPhone
-                            </a>
-                            <a href="#" class="btn btn-hero-android">
-                                Get Certo for Android
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Right side: Phone mockup image (6 columns on desktop, full width on mobile) -->
-                    <div class="col-lg-6 hero-image-col">
-                        <!-- img-fluid = Bootstrap class for responsive images (max-width: 100%) -->
-                        <img src="assets/images/hero-phone.png" 
-                             alt="Certo iPhone app showing security scan" 
-                             class="img-fluid hero-phone">
-                    </div>
-                    
-                </div>
-                
-                <!-- Trust badge row - appears below the hero content -->
-                <!-- mt-5 = margin-top spacing -->
-                <div class="row mt-5">
-                    <div class="col-12 text-center">
-                        <!-- 5-star rating image -->
-                        <img src="assets/images/stars-rating.png" 
-                             alt="5 star rating" 
-                             class="stars-img mb-2">
-                        <!-- mb-2 = margin-bottom spacing -->
-                        <p class="trust-text">
-                            Loved by thousands of iPhone and Android users alike
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ============================================ -->
-        <!-- HERO SECTION END -->
-        <!-- ============================================ -->
-
-        <!-- ============================================ -->
-        <!-- TESTIMONIALS SECTION -->
-        <!-- 3 testimonial cards in a row using Bootstrap grid -->
-        <!-- col-md-4 = 3 columns on tablet/desktop, stacks on mobile -->
-        <!-- g-4 = gutter spacing between cards -->
-        <!-- ============================================ -->
-        <section class="testimonials-section">
-            <div class="container">
-                <div class="row g-4">
-                    
-                    <!-- Testimonial Card 1 -->
-                    <div class="col-md-4">
-                        <div class="testimonial-card">
-                            <!-- User review text -->
-                            <p class="testimonial-text">
-                                "Does exactly what it says. Clear to read and understand. 
-                                This is now the second iPhone we've used it on and would 
-                                certainly recommend this app."
-                            </p>
-                            <!-- Author info with avatar image and name -->
-                            <div class="testimonial-author">
-                                <img src="assets/images/avatar-colin.png" 
-                                     alt="colindemandy94" 
-                                     class="avatar">
-                                <span class="author-name">colindemandy94</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial Card 2 -->
-                    <div class="col-md-4">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "Love the ease and efficiency. Awesome app. Very informative 
-                                and insightful if wanting to know more about your device. 
-                                The added breach check is a great bonus. Check any email 
-                                of that's ever been named in a data breach from years ago. 
-                                Sweet tool. Love it highly recommend."
-                            </p>
-                            <div class="testimonial-author">
-                                <img src="assets/images/avatar-jennifer.png" 
-                                     alt="Jennifer Sluck" 
-                                     class="avatar">
-                                <span class="author-name">Jennifer Sluck</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial Card 3 -->
-                    <div class="col-md-4">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                "This app is good if you need to identify certain 
-                                vulnerabilities on your iPhone. If you have any issues, 
-                                their customer service was quite helpful and responsive."
-                            </p>
-                            <div class="testimonial-author">
-                                <img src="assets/images/avatar-philip.png" 
-                                     alt="Philip Colligan" 
-                                     class="avatar">
-                                <span class="author-name">Philip Colligan</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-        <!-- ============================================ -->
-        <!-- TESTIMONIALS SECTION END -->
-        <!-- ============================================ -->
-
-        <!-- ============================================ -->
-        <!-- PRESS / FEATURED IN SECTION -->
-        <!-- Shows media logos that have featured Certo -->
-        <!-- Uses flexbox for logo alignment (custom CSS) -->
-        <!-- ============================================ -->
-        <section class="press-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Section heading -->
-                        <h3 class="featured-title text-center mb-4">Featured in:</h3>
-                        <!-- Logo container - styled with flexbox in CSS -->
-                        <div class="press-logos">
-                            <img src="assets/images/logo-cnbc.png" alt="CNBC">
-                            <img src="assets/images/logo-financial-times.png" alt="Financial Times">
-                            <img src="assets/images/logo-readers-digest.png" alt="Reader's Digest">
-                            <img src="assets/images/logo-zdnet.png" alt="ZDNet">
-                            <img src="assets/images/logo-wired.png" alt="WIRED">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ============================================ -->
-        <!-- PRESS / FEATURED IN SECTION END -->
-        <!-- ============================================ -->
-
-        <!-- ============================================ -->
-        <!-- BOTTOM CALL-TO-ACTION SECTION -->
-        <!-- Final conversion section before footer -->
-        <!-- Contains tagline and download buttons -->
-        <!-- ============================================ -->
-        <section class="bottom-cta">
-            <div class="container">
-                <div class="row align-items-center">
-                    <!-- Left side: Tagline text -->
-                    <div class="col-lg-6">
-                        <h2 class="bottom-cta-title">
-                            At Certo, mobile security is not an afterthought it's ...
-                        </h2>
-                        <p class="bottom-cta-subtitle">find peace of mind.</p>
-                    </div>
-                    <!-- Right side: Download buttons -->
-                    <div class="col-lg-6">
-                        <div class="bottom-cta-buttons">
-                            <a href="#" class="btn btn-hero-iphone me-3">
-                                Get Certo for iPhone
-                            </a>
-                            <a href="#" class="btn btn-hero-android">
-                                Get Certo for Android
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ============================================ -->
-        <!-- BOTTOM CTA SECTION END -->
-        <!-- ============================================ -->
-
-    </main>
-    <!-- Main content ends -->
-
-    <!-- ============================================ -->
-    <!-- FOOTER SECTION -->
-    <!-- Uses Bootstrap grid for 5-column layout -->
-    <!-- Contains: brand, product links, company links, help links, legal links -->
-    <!-- ============================================ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                
-                <!-- Brand column - takes 4 columns on tablet, full on mobile -->
-                <div class="col-md-4 mb-3">
-                    <h4 class="footer-logo">Certo</h4>
-                    <p class="footer-text">Mobile security made simple.</p>
-                </div>
-                
-                <!-- Products links -->
-                <div class="col-md-2 mb-3">
-                    <h5>Products</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">iPhone</a></li>
-                        <li><a href="#">Android</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Company links -->
-                <div class="col-md-2 mb-3">
-                    <h5>Company</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Help links -->
-                <div class="col-md-2 mb-3">
-                    <h5>Help</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Legal links -->
-                <div class="col-md-2 mb-3">
-                    <h5>Legal</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Horizontal divider line -->
-            <hr>
-            
-            <!-- Copyright row -->
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="copyright">&copy; 2024 Certo. All rights reserved.</p>
-                </div>
-            </div>
+  <!-- ========== NAVBAR ========== -->
+  <header>
+    <nav class="navbar navbar-expand-lg certo-navbar">
+      <div class="container">
+        <a class="navbar-brand certo-logo" href="#">
+          <img src="C:\Users\huzay\Downloads\images\images\logo.png" alt="Certo Logo" height="36" />
+          <span class="ms-2 brand-text">Certo</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-4">
+            <li class="nav-item"><a class="nav-link" href="#">iPhone</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Android</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Help</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Company</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">About Us</a></li>
+                <li><a class="dropdown-item" href="#">Insights</a></li>
+              </ul>
+            </li>
+          </ul>
+          <a href="#" class="btn btn-sign-in ms-lg-5">Sign in</a>
         </div>
-    </footer>
-    <!-- ============================================ -->
-    <!-- FOOTER END -->
-    <!-- ============================================ -->
+      </div>
+    </nav>
+  </header>
 
-    <!-- Bootstrap 5 JavaScript Bundle -->
-    <!-- Required for mobile navbar toggler (hamburger menu) to work -->
-    <!-- Includes Popper.js for dropdowns and tooltips -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <main>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero-section">
+      <div class="hero-right-bg">
+        <div class="hero-gold-box">
+          <img src="C:\Users\huzay\Downloads\images\images\img138.jpg" class="hero-man-img" alt="Person using phone" />
+        </div>
+        <img src="C:\Users\huzay\Downloads\images\images\img126.jpg" class="hero-phone-ui" alt="Phone UI" />
+      </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 hero-content">
+            <h1 class="hero-title">Your mobile privacy<br>is our mission</h1>
+            <p class="hero-subtitle">Think your phone has been hacked? Our trusted apps make it easy for you to scan, detect and remove threats from your iPhone and Android devices.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="#" class="btn btn-certo-primary">Get Certo for iPhone →</a>
+              <a href="#" class="btn btn-certo-outline-dark">Get Certo for Android</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REVIEWS SECTION ========== -->
+    <div class="bg-gold-wrapper">
+      <section class="reviews-section">
+        <div class="container">
+          <h2 class="section-title mb-5">Loved by thousands of iPhone<br>and Android users alike</h2>
+        </div>
+        <div class="reviews-scroll-track">
+          <div class="reviews-scroll">
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p class="review-text">Does exactly what it says. Clear to read and understand. This is now the second iPhone we've used it on and would certainly recommend this app.</p>
+              <span class="reviewer-name">colinandmandy94</span>
+            </div>
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p class="review-text">Love the ease and efficiency. Awesome app. Very informative and insightful if wanting to know more about your device.</p>
+              <span class="reviewer-name">Jennifer Black</span>
+            </div>
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p class="review-text">This app is good if you need to identify certain vulnerabilities on your iPhone. Customer service was quite helpful.</p>
+              <span class="reviewer-name">Phillip Colligan</span>
+            </div>
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <p class="review-text">I wish I had known about this sooner. The notifications are very clear and it was the best decision I made.</p>
+              <span class="reviewer-name">Leslie</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-section">
+        <div class="container">
+          <div class="featured-logos-bar d-flex flex-wrap align-items-center justify-content-center gap-4">
+            <p class="featured-label mb-0">Featured in:</p>
+            <div class="logos d-flex flex-wrap gap-4">
+              <img src="C:\Users\huzay\Downloads\images\images\img1.jpg" alt="CNBC" height="24" />
+              <img src="C:\Users\huzay\Downloads\images\images\img2.jpg" alt="NY Post" height="24" />
+              <img src="C:\Users\huzay\Downloads\images\images\img4.jpg" alt="FT" height="24" />
+              <img src="C:\Users\huzay\Downloads\images\images\img5.jpg" alt="Reader's Digest" height="24" />
+              <img src="C:\Users\huzay\Downloads\images\images\img6.jpg" alt="ZDNet" height="24" />
+              <img src="C:\Users\huzay\Downloads\images\images\img8.jpg" alt="Wired" height="24" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== MISSION SECTION ========== -->
+    <section class="mission-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <h2 class="mission-title">At Certo, mobile security<br>is not an afterthought, it's<br>what we do.</h2>
+            <p class="mission-body">With years of experience in mobile security and spyware detection, our products have helped countless people safeguard their devices and find peace of mind.</p>
+            <div class="d-flex flex-column gap-3 mt-5" style="max-width: 280px;">
+              <a href="#" class="btn btn-certo-primary">Get Certo for iPhone →</a>
+              <a href="#" class="btn btn-certo-outline-dark">Get Certo for Android</a>
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-center">
+            <div class="mission-photo-wrapper">
+              <img src="C:\Users\huzay\Downloads\images\images\img216.jpg" alt="Woman using phone" class="mission-photo" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES SECTION ========== -->
+    <div class="bg-features-wrapper">
+      <section class="features-section">
+        <div class="container">
+          <h2 class="features-title text-center">Get your freedom back, stop mobile spyware today</h2>
+          <div class="row g-4 mb-5">
+            <div class="col-lg-4 col-md-6">
+              <div class="feature-item">
+                <div class="feature-icon"><img src="C:\Users\huzay\Downloads\images\images\1.png" alt="Spyware" /></div>
+                <h3 class="feature-title">Spyware detection</h3>
+                <p class="feature-desc">Our advanced spyware detection engine can identify if a device contains spyware or bugging software.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="feature-item">
+                <div class="feature-icon"><img src="C:\Users\huzay\Downloads\images\images\2.png" alt="Keylogger" /></div>
+                <h3 class="feature-title">Keylogger detection</h3>
+                <p class="feature-desc">Find malicious keyboards installed on your device that could allow someone to record things you type.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="feature-item">
+                <div class="feature-icon"><img src="C:\Users\huzay\Downloads\images\images\4.png" alt="Tracking" /></div>
+                <h3 class="feature-title">Find tracking apps</h3>
+                <p class="feature-desc">Check which apps can access your location, microphone or camera. Get alerted if a known tracking app is installed.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="feature-item">
+                <div class="feature-icon"><img src="C:\Users\huzay\Downloads\images\images\5.png" alt="OS" /></div>
+                <h3 class="feature-title">OS integrity check</h3>
+                <p class="feature-desc">Analyze your operating system for signs of tampering that could compromise security, such as Jailbreaking.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="feature-item">
+                <div class="feature-icon"><img src="C:\Users\huzay\Downloads\images\images\6.png" alt="Threat" /></div>
+                <h3 class="feature-title">Threat removal</h3>
+                <p class="feature-desc">Our intelligent scan will either safely remove threats for you or provide easy-to-follow instructions.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="feature-item">
+                <div class="feature-icon"><img src="C:\Users\huzay\Downloads\images\images\1.png" alt="Easy" /></div>
+                <h3 class="feature-title">Easy to use</h3>
+                <p class="feature-desc">We create easy to use apps that can check your device for vulnerabilities in a matter of minutes.</p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="#" class="btn btn-certo-primary">Get Certo for iPhone →</a>
+            <a href="#" class="btn btn-certo-outline-dark">Get Certo for Android</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="dual-cards-section py-5">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="dual-card dual-card--light-blue">
+                <div><h3>Read our story</h3><p>Find out why thousands trust Certo to secure their mobile world.</p></div>
+                <a href="#" class="btn-certo-purple">About us →</a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="dual-card dual-card--white">
+                <div><h3>Help Center</h3><p>Help topics, getting started guides and FAQs.</p></div>
+                <a href="#" class="btn btn-certo-outline-dark">Visit help center</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ========== CTA BANNER ========== -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <h2 class="cta-banner-title">Is someone spying on your phone?</h2>
+        <p class="cta-banner-sub">Find out with Certo</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+          <a href="#" class="btn btn-certo-primary">Get Certo for iPhone →</a>
+          <a href="#" class="btn btn-certo-outline-dark">Get Certo for Android</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== INSIGHTS SECTION ========== -->
+    <section class="insights-section">
+      <div class="container">
+        <h2 class="section-title text-center mb-5">Latest insights</h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="insight-card">
+              <div class="insight-img">
+                <img src="C:\Users\huzay\Downloads\images\images\img160.jpg" class="insight-photo" />
+                <span class="insight-tag">Expertise</span>
+              </div>
+              <div class="insight-body">
+                <h4 class="insight-title">Signs Your Ex Is Spying On You</h4>
+                <p class="insight-excerpt">In an ideal world, after a relationship ends both you and your ex will move on...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="insight-card">
+              <div class="insight-img">
+                <img src="C:\Users\huzay\Downloads\images\images\img168.jpg" class="insight-photo" />
+                <span class="insight-tag">Guides</span>
+              </div>
+              <div class="insight-body">
+                <h4 class="insight-title">How to Remove a Hacker from Your Samsung Phone</h4>
+                <p class="insight-excerpt">Samsung is the second most popular manufacturer of smartphones in the world...</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="insight-card">
+              <div class="insight-img">
+                <img src="C:\Users\huzay\Downloads\images\images\img198.jpg" class="insight-photo" />
+                <span class="insight-tag">Expertise</span>
+              </div>
+              <div class="insight-body">
+                <h4 class="insight-title">Is Your Cell Phone Under Surveillance?</h4>
+                <p class="insight-excerpt">In today's surveillance state, it can feel like your every move is being watched...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="#" class="btn btn-certo-primary">View all insights →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <h2 class="footer-title-large">Scan. Detect. Remove.</h2>
+          <div class="d-flex gap-3 mt-4 mb-5">
+            <a href="#" class="social-box"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="social-box"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-box"><i class="bi bi-youtube"></i></a>
+          </div>
+          <div class="footer-bottom-links mb-4">
+            <a href="#" class="text-white text-decoration-none me-4">Privacy Policy</a>
+            <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+          </div>
+          <p class="footer-info-text mb-1 text-white-50 small">Copyright © 2022 Certo Software Limited | Registered in England & Wales No. 10072356</p>
+          <p class="footer-info-text text-white-50 small">Designed & developed by <a href="#" class="text-white">Bigger Picture</a></p>
+        </div>
+        <div class="col-lg-3 offset-lg-1">
+          <h3 class="footer-nav-title">Certo</h3>
+          <ul class="footer-nav-list">
+            <li><a href="#">iPhone</a></li>
+            <li><a href="#">Android</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Insights</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="newsletter-gold-box mb-4">
+            <h3 class="newsletter-title">Sign up to our newsletter</h3>
+            <p class="newsletter-text">Receive the latest mobile security news, exclusive discounts & offers straight to your inbox!</p>
+            <div class="newsletter-form-pill">
+              <input type="email" placeholder="Email address" />
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+          <div class="footer-white-box"></div>
+        </div>
+      </div>
+      <div class="mt-5 pt-4 text-center">
+        <p class="footer-disclaimer">Apple, the Apple logo, and iPhone are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. Android, Google Play and the Google Play logo are trademarks of Google LLC.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
